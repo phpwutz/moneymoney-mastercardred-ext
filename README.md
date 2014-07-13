@@ -9,7 +9,7 @@ Installation
 ------------
 ### Signierte Installation
 
-Ist im Moment nicht möglich, da diese Extension (noch) nicht von MoneyMoney signiert wurde.
+Lade die signierte `Mastercard Red.lua` von den [Community-Extensions](http://moneymoney-app.com/extensions/) und lege diese in den `Extensions`-Ordner. Öffne dazu in MoneyMoney das Menü *Hilfe* und klicke auf *Zeige Datenbank im Finder*. Die Signaturprüfung in MoneyMoney kann mit dieser Version aktiviert bleiben.
 
 ### Unsignierte Installation aus dem GitHub-Repository
 
