@@ -1,5 +1,5 @@
 --
--- MoneyMoney Web Banking Mastercard RED extension
+-- MoneyMoney Web Banking MasterCard RED extension
 -- http://moneymoney-app.com/api/webbanking
 --
 --
@@ -26,14 +26,14 @@
 -- THE SOFTWARE.
 --
 --
--- Get balance and transactions for Mastercard RED
+-- Get balance and transactions for MasterCard RED
 --
 
-WebBanking{version     = 0.01,
+WebBanking{version     = 1.00,
            country     = "de",
            url         = "https://gate.sinsys.net/gui/plb/",
-           services    = {"Mastercard RED"},
-           description = string.format(MM.localizeText("Get balance and transactions for %s"), "Mastercard Red Prepaid credit card")}
+           services    = {"MasterCard RED"},
+           description = string.format(MM.localizeText("Get balance and transactions for %s"), "MasterCard RED")}
 
 local xPathes = {
     accountOwner = '/html/body/center/table/tr[3]/td/table/tr[2]/td[4]/b',
@@ -50,7 +50,7 @@ local xPathes = {
 local mcrLoginResponse = {}
 
 function SupportsBank (protocol, bankCode)
-  return bankCode == "Mastercard RED" and protocol == "Web Banking"
+  return bankCode == "MasterCard RED" and protocol == "Web Banking"
 end
 
 function makeTimeStamp(dateString)
@@ -78,13 +78,13 @@ function InitializeSession (protocol, bankCode, username, username2, password, u
 
   loginPage:xpath("//input[@name='j_username']"):attr("value", username)
   loginPage:xpath("//input[@name='j_password']"):attr("value", password)
-  
+
   local loginResponse = HTML(connection:request(loginPage:xpath("//input[@name='Submit']"):click()))
   if loginResponse:xpath("//p[@class='gErrorMessage']"):length() > 0
   then
     return LoginFailed
   end
-  
+
   mcrLoginResponse = loginResponse
   -- default return is 'login ok'
 end
@@ -98,7 +98,7 @@ function ListAccounts (knownAccounts)
 
   -- Return array of accounts.
   local account = {
-    name = "Mastercard RED",
+    name = "MasterCard RED",
     owner = ownerName,
     accountNumber = accountNumber,
     bankCode = bankCode,
@@ -116,7 +116,7 @@ function RefreshAccount (account, since)
   local transactions = {}
   transactionRows:each(
     function(index, element)
-      -- format: date, type, text, currency, foreign-currency-amount, exchange-rate, manipulation fees, value in EUR 
+      -- format: date, type, text, currency, foreign-currency-amount, exchange-rate, manipulation fees, value in EUR
       local dataFields = element:xpath('td')
       local date                  = dataFields:get(1):text()
       local transactionType       = dataFields:get(2):text()
