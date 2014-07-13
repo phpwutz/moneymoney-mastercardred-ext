@@ -1,5 +1,5 @@
 --
--- MoneyMoney Web Banking MasterCard RED extension
+-- MoneyMoney Web Banking extension
 -- http://moneymoney-app.com/api/webbanking
 --
 --
@@ -62,26 +62,16 @@ end
 
 function InitializeSession (protocol, bankCode, username, username2, password, username3)
   local connection = Connection()
+  connection.language = "de-at"
 
-  -- change locale to german so we can detect 'Aufladung'
   local loginPage = HTML(connection:get(url))
-
-  local germanLocaleLink = loginPage:xpath(xPathes.localeLinkGerman)
-  if germanLocaleLink:text() == 'Deutsch'
-    then
-      loginPage:xpath("//input[@name='j_username']"):attr("value", "changeLocale")
-      loginPage:xpath("//input[@name='j_password']"):attr("value", "de-AT")
-      print('setting locale')
-      loginPage = HTML(connection:request(loginPage:xpath("//input[@name='Submit']"):click()))
-      print('changed locale')
-  end
-
   loginPage:xpath("//input[@name='j_username']"):attr("value", username)
   loginPage:xpath("//input[@name='j_password']"):attr("value", password)
 
   local loginResponse = HTML(connection:request(loginPage:xpath("//input[@name='Submit']"):click()))
   if loginResponse:xpath("//p[@class='gErrorMessage']"):length() > 0
   then
+    print("Response: " .. loginResponse:xpath("//p[@class='gErrorMessage']"):text())
     return LoginFailed
   end
 
