@@ -3,7 +3,7 @@ moneymoney-mastercardred-ext
 
 Mastercard RED Extension for MoneyMoney.app banking application
 
-[MoneyMoney.app](http://moneymoney-app.com)-Erweiterung für Saldo- und Umsatzabfrage von [Mastercard Red](http://www.prepaid-karten.at/) Prepaidkreditkarten-Umsätzen
+[MoneyMoney.app](http://moneymoney-app.com)-Erweiterung für Saldo- und Umsatzabfrage von [Mastercard Red](http://www.prepaid-karten.at/) Prepaidkreditkarten.
 
 Installation
 ------------
