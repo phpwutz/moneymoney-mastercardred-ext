@@ -1,4 +1,4 @@
-moneymoney-mastercardred-ext
+MoneyMoney Mastercard-Red extension
 ============================
 
 Mastercard RED Extension for MoneyMoney.app banking application
