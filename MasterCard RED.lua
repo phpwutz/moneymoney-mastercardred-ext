@@ -105,7 +105,7 @@ function ListAccounts (knownAccounts)
     iban = iban,
     bic = bic,
     currency = "EUR",
-    type = AccountTypeSavings
+    type = AccountTypeCreditCard
   }
   return {account}
 end
