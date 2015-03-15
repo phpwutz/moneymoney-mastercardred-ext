@@ -31,7 +31,7 @@
 
 WebBanking{version     = 1.00,
            country     = "de",
-           url         = "https://gate.sinsys.net/gui/plb/",
+           url         = "https://b2bpr.vaservices.eu/plb/PayLifeBalanceInquiry/",
            services    = {"MasterCard RED"},
            description = string.format(MM.localizeText("Get balance and transactions for %s"), "MasterCard RED")}
 
